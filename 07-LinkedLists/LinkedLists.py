@@ -55,6 +55,27 @@ class LinkedList():
                 temp = temp.next
             temp.next = newNode
     
+    def insert(self, data, index):
+        """
+        Inserts a new Node containing data at given index position
+        Insertion itself takes O(1), but finding the position to insert in takes O(n) time.
+        
+        Takes overall O(n) time
+        """
+        
+        if index == 0:
+            self.add_first(data)
+        else:
+            temp = self.head
+            while(index - 1):   # Traverse to the node at index before the index we want to insert
+                temp = temp.next
+                index -= 1
+            new_node = Node(data)
+            new_node.next = temp.next
+            temp.next = new_node
+        
+        
+    
     def search(self, key):
         """
         Search for the first node containing data that matches the key
@@ -72,6 +93,10 @@ class LinkedList():
         return None
     
     def delete(self, key):
+        """
+        Deletes Node containing data that matches the given key
+        Takes O(n) time.
+        """
         if self.head.data == key:
             self.head = self.head.next
             
@@ -84,6 +109,22 @@ class LinkedList():
                 else:
                     temp = temp.next
 
+    
+    def remove_at_index(self, index):
+        """
+        Removes Node at given index.
+        Takes O(n) time.
+        """
+        if index == 0:
+            self.head = self.head.next
+        else:
+            temp = self.head
+            while(index > 1):
+                temp = temp.next
+                index -= 1
+            temp.next = temp.next.next
+            
+    
     def print_list(self):
         temp = self.head
         print("The LinkedList Elements Are: ")
@@ -112,6 +153,12 @@ if __name__ == '__main__':
     l.add_first(1)
     l.add_first(2)
     l.add_first(3)
+    l.add_first(4)
     print(l)
     print(l.search(2))
-    
+    l.insert(6,2)
+    print(l)
+    l.remove_at_index(2)
+    print(l)
+    l.remove_at_index(0)
+    print(l)
