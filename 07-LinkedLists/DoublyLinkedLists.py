@@ -32,7 +32,16 @@ class DoublyLinkedList():
         while(temp != None):
             print(temp.data)
             temp = temp.prev
-            
+       
+    def add_first(self,val):
+        newNode = Node(val)
+        if(self.head == None):
+            self.head = newNode
+        else:
+            newNode.next = self.head
+            self.head.prev = newNode
+            self.head = newNode
+         
 
 if __name__ == "__main__":
     l = DoublyLinkedList()
@@ -46,5 +55,9 @@ if __name__ == "__main__":
     middle.next = last
     last.prev = middle
     last.next = None
+    
+    # l.printList()
+    
+    l.add_first(60)
     
     l.printList()
