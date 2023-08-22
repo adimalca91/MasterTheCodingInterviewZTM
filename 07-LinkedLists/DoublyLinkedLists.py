@@ -42,6 +42,26 @@ class DoublyLinkedList():
             self.head.prev = newNode
             self.head = newNode
          
+    def addLast(self, val):
+        newNode = Node(val)
+        if(self.head == None):
+            self.head = newNode
+        else:
+            temp = self.head
+            while temp.next != None:  # in order to only know where the last node is and add another after it (and not to get the data of it).
+                temp = temp.next
+            temp.next = newNode
+            newNode.prev = temp
+            
+    def search(self, key):
+        
+        temp = self.head
+        
+        while temp != None:      # in order to actually go over (iterate) the last node itself and check it's data we do while temp and not while temp.next
+            if temp.data == key:
+                return True
+            temp = temp.next
+        return False
 
 if __name__ == "__main__":
     l = DoublyLinkedList()
@@ -59,5 +79,9 @@ if __name__ == "__main__":
     # l.printList()
     
     l.add_first(60)
+    
+    l.printList()
+    
+    l.addLast(100)
     
     l.printList()
