@@ -103,6 +103,32 @@ class DoublyLinkedList():
                 break
             temp = temp.next
             
+    
+    '''
+        This is another implementation of deleting a node in a linked list.
+    '''       
+    
+    def deleteNode(self, key):
+
+        if self.head == None:
+            return
+
+        temp = self.head
+
+        while temp != None and temp.data != key:
+            temp = temp.next
+
+        if temp == None:
+            print("Key Not Found")
+        elif temp == self.head:
+            self.head = self.head.next
+            self.head.prev = None
+        elif temp.next == None:
+            temp.prev.next = None
+        else:
+            temp.prev.next = temp.next
+            temp.next.prev = temp.prev
+            
 
 if __name__ == "__main__":
     l = DoublyLinkedList()
