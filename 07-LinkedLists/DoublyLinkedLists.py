@@ -18,6 +18,11 @@ class DoublyLinkedList():
         self.head = None
         
     def printList(self):
+        
+        if self.head == None:
+            print("List is Empty")
+            return
+        
         temp = self.head
         
         print("Forward Traversal")
@@ -63,6 +68,42 @@ class DoublyLinkedList():
             temp = temp.next
         return False
 
+    '''
+    This is my implementation of deleting a node in a doubly linked list!
+    For another implementation look below.
+    
+    '''
+    def delete(self, val):
+        
+        print("Delete a node")
+        
+        if self.head == None:
+            print("List is Empty")
+            return
+        elif self.head.data == val:  # If the node to delete is the first node
+            if self.head.next == None: # This is the ONLY node in the list.
+                self.head = None
+                print("Deleted the last node in the list, now the list is empty")
+                return
+            self.head = self.head.next
+            self.head.prev = None
+            return
+        
+        temp = self.head
+        
+        while temp != None:
+            if temp.data == val:  # If the node to delete is the last node
+                if temp.next == None:
+                    temp.prev.next = temp.next
+                    break
+                temp.prev.next = temp.next
+                temp.next.prev = temp.prev
+                temp.prev = None
+                temp.next = None
+                break
+            temp = temp.next
+            
+
 if __name__ == "__main__":
     l = DoublyLinkedList()
     l.head = Node(10)
@@ -83,5 +124,27 @@ if __name__ == "__main__":
     l.printList()
     
     l.addLast(100)
+    
+    l.printList()
+    
+    print("deleting")
+    
+    l.delete(100)
+    
+    l.printList()
+    
+    l.delete(60)
+    
+    l.printList()
+    
+    l.delete(20)
+    
+    l.printList()
+    
+    l.delete(30)
+    
+    l.printList()
+    
+    l.delete(10)
     
     l.printList()
