@@ -95,4 +95,53 @@ def merge_sorted_arrays_2(arr1, arr2):
     have an assignment right after the incrementation, only after the loop was checked!
 '''
 
+'''
+Another implementation using a for loop
+'''
+
+def add_rest(merged_arr, arr, index):
+    for i in range(index, len(arr)):
+        merged_arr.append(arr[i])
+    return merged_arr
+        
+
+def merge_sorted_arrays_3(arr1, arr2):
+    x = 0
+    y = 0
+    temp1 = arr1[x]
+    temp2 = arr2[y]
+    arr = []
     
+    for i in range(len(arr1)+len(arr2)):
+        if temp1 < temp2:
+            arr.append(temp1)
+            if x < len(arr1)-1:
+                x+=1
+                temp1 = arr1[x]
+            else:
+                return add_rest(arr ,arr2, x+1)
+        elif temp1 > temp2:
+            arr.append(temp2)
+            if y < len(arr2)-1:
+                y+=1
+                temp2 = arr2[y]
+            else:
+                return add_rest(arr, arr1, y+1)
+        else:
+            arr.append(temp1)
+            arr.append(temp2)
+            if x < len(arr1)-1:
+                x+=1
+                temp1 = arr1[x]
+            else:
+                return add_rest(arr ,arr2, x+1)
+            if y < len(arr2)-1:
+                y+=1
+                temp2 = arr2[y]
+            else:
+                return add_rest(arr, arr1, y+1)
+    
+    
+# c=[0,3,4,5, 17,31]
+# d = [1,2,4,6,30]
+# print(merge_sorted_arrays_3(c,d))
