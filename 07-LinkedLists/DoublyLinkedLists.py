@@ -57,6 +57,19 @@ class DoublyLinkedList():
                 temp = temp.next
             temp.next = newNode
             newNode.prev = temp
+    
+    def insert(self, index, val):
+        if index == 0:
+            self.add_first(val)
+        else:
+            new_node = Node(val)
+            tmp = self.head
+            for i in range(index-1):
+                tmp = tmp.next
+            new_node.next = tmp.next
+            new_node.prev = tmp
+            tmp.next = new_node
+            new_node.next.prev = new_node
             
     def search(self, key):
         
@@ -147,30 +160,37 @@ if __name__ == "__main__":
     
     l.add_first(60)
     
-    l.printList()
+    # l.printList()
     
     l.addLast(100)
     
     l.printList()
     
-    print("deleting")
+    # print("deleting")
     
-    l.delete(100)
+    # l.delete(100)
+    
+    # l.printList()
+    
+    # l.delete(60)
+    
+    # l.printList()
+    
+    # l.delete(20)
+    
+    # l.printList()
+    
+    # l.delete(30)
+    
+    # l.printList()
+    
+    # l.delete(10)
+    
+    # l.printList()
+    
+    l.insert(2,50)
     
     l.printList()
     
-    l.delete(60)
-    
-    l.printList()
-    
-    l.delete(20)
-    
-    l.printList()
-    
-    l.delete(30)
-    
-    l.printList()
-    
-    l.delete(10)
-    
-    l.printList()
+for i in range(2):
+    print(i)
