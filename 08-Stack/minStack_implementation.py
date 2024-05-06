@@ -1,6 +1,9 @@
 '''
 Minimun Stack Implementation
+
 '''
+
+# push, pop, top and getMin in O(1) Time Complexity
 
 class minStack():
     
