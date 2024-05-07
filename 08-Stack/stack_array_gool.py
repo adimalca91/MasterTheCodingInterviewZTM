@@ -1,6 +1,12 @@
 '''
 Stack Implementation by GOOL
 
+Note: here the pop() takes 0(n) b/c we implement it using the slice operation, but we don't
+really need to use it, we can just NOT actually delete the last element and just move
+the 'top' field to point to the current last element and if we push we override position where
+there is the element we didnt delete / slice - look in the "stack_array_no_builtin_py_functions.py file"
+There it takes O(1).
+
 '''
 
 class Stack:

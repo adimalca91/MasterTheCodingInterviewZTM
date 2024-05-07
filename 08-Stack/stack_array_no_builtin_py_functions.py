@@ -3,7 +3,12 @@ Stack Implementation with Arrays
 
 Without using Python List's built in functions such as append() and pop()
 
-Note - Here we need to define in advance the size of the stack and it's limited - we can't add more once it's full!
+From Log2Base2 - https://log2base2.com/courses/data-structures-python/stack-data-structue-in-python
+
+Also check out the notes in the binder for more information
+
+** Note - Here we need to define in advance the size of the stack and it's limited - we can't add more once it's full! **
+
 '''
 
 class Stack():

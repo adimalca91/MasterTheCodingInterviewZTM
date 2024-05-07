@@ -1,7 +1,11 @@
 '''
 Max Stack Implementation
+
+From Udemy - https://www.udemy.com/course/data-structures-and-algorithms-masterclass/learn/lecture/22781107#overview
+
 '''
 
+# push, pop, top and getMax in O(1) Time Complexity
 
 class maxStack():
     
