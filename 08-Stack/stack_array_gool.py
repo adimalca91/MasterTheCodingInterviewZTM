@@ -41,7 +41,7 @@ class Stack:
             raise Exception("Stack is empty")
         else:
             return_val = self.stack[self.size-1]
-            self.stack = self.stack[0:self.size-1]
+            self.stack = self.stack[0:self.size-1] # we don't have to do that, look at Log2Base2 implementation
             self.size -= 1
             return return_val
 
