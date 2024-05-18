@@ -2,6 +2,8 @@
 Stack Implementation with Arrays
 
 Using Python List's built in functions such as append() and pop()
+
+From Udemy - https://www.udemy.com/course/data-structures-and-algorithms-masterclass/learn/lecture/22753981#overview
 '''
 
 class Stack():
