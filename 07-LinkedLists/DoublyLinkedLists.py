@@ -111,8 +111,8 @@ class DoublyLinkedList():
                     break
                 temp.prev.next = temp.next
                 temp.next.prev = temp.prev
-                temp.prev = None
-                temp.next = None
+                temp.prev = None            # optional
+                temp.next = None            # optional
                 break
             temp = temp.next
             
@@ -166,31 +166,31 @@ if __name__ == "__main__":
     
     l.printList()
     
-    # print("deleting")
-    
-    # l.delete(100)
-    
-    # l.printList()
-    
-    # l.delete(60)
-    
-    # l.printList()
-    
-    # l.delete(20)
-    
-    # l.printList()
-    
-    # l.delete(30)
-    
-    # l.printList()
-    
-    # l.delete(10)
-    
-    # l.printList()
-    
     l.insert(2,50)
     
     l.printList()
     
-for i in range(2):
-    print(i)
+    print("deleting")
+    
+    l.delete(100)
+    
+    l.printList()
+    
+    l.delete(60)
+    
+    l.printList()
+    
+    l.delete(20)
+    
+    l.printList()
+    
+    l.delete(30)
+    
+    l.printList()
+    
+    l.delete(10)
+    
+    l.printList()
+    
+
+    
