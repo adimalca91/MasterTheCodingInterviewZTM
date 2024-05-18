@@ -53,12 +53,12 @@ def number_appearances(stack, x):
         return 0
     counter = 0
     tmp_stack = Stack()
-    while stack.is_empty() != True:
+    while stack.is_empty() != True:    # the way to "run / iterate" over a stack
         tmp = stack.top()
         if tmp == x:
             counter +=1
         tmp_stack.push(tmp)
-        stack.pop()
+        stack.pop()                   # Decrement the elements in the stack for the while loop
     
     while tmp_stack.is_empty() != True:
         stack.push(tmp_stack.top())
