@@ -57,6 +57,8 @@ class Stack:
 
 '''
 
+*** Insert Efficient Implementation ***
+
 Implementing a Queue using 2 stacks where the Insertion / push operation in efficient
 but the pop operation is not - 0(n) - b/c we need to 'traverse' through all elements
 in the main stack and move them to the helper stack
@@ -124,9 +126,70 @@ class QueueUsingStacksInsert():
                 q += f"{element} -> "
             return q[:-3] + f" , size: {self.main_stack.size}"
     
+
+'''
+
+*** Remove Efficient Implementation ***
+
+Implementing a Queue using 2 stacks where the Removal / pop operation in efficient
+but the insert operation is not - 0(n) - b/c we need to 'traverse' through all elements
+in the main stack and move them to the helper stack
+
+''' 
+
+class QueueUsingStacksRemove():
+    
+    def __init__(self):
+        self.main_stack = Stack()
+        self.helper_stack = Stack()
+        
+    def push(self,x):
+        while self.main_stack.is_empty() == False:
+            last = self.main_stack.top()
+            self.main_stack.pop()
+            self.helper_stack.push(last)
+        
+        self.main_stack.push(x)
+        
+        while self.helper_stack.is_empty() == False:
+            last2 = self.helper_stack.top()
+            self.helper_stack.pop()
+            self.main_stack.push(last2)
+        
+        
+    def pop(self):
+        self.main_stack.pop()
+        
+            
+    def peek(self):
+        if (self.main_stack.is_empty()):
+            return []
+        top = self.main_stack.top()
+        return top
+    
+      
+    def is_q_empty(self):
+        if self.main_stack.is_empty():
+            return True
+        return False
+    
+    
+    
+    # O(n) - looping over the self.stack list and running through all elements.
+    def __repr__(self):
+        if self.main_stack.size == 0:
+            return "[]"
+        else:
+            q = "Queue: "
+            for element in self.main_stack.stack:
+                q += f"{element} -> "
+            return q[:-3] + f" , size: {self.main_stack.size}"
+
+
+
     
 
-q = QueueUsingStacksInsert()
+q = QueueUsingStacksRemove()
 
 q.push(1)
 q.push(2)
